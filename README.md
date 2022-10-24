@@ -9,6 +9,6 @@ ipad protocol, implementation
    <li>/v1/login/check(检查用户是否登陆)</li>
    <li>/v1/login/auto(自动登陆)</li>
    <h3>联系人</h3>
-   <li>/v1/contact/sync/customer</li>
+   <li>/v1/contact/sync/customer(获取外部联系人)</li>
 
 </ul>
