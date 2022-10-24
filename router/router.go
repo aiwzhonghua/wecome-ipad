@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"wecome-ipad/controller/auto"
 	"wecome-ipad/controller/check"
+	"wecome-ipad/controller/contact"
 	"wecome-ipad/controller/qrcode"
 )
 
@@ -21,6 +22,9 @@ func Router() *gin.Engine {
 
 		//自动登陆
 		wecome.GET("/login/auto", auto.Auto)
+
+		//获取外部联系人
+		wecome.GET("/contact/sync/customer", contact.SyncCustomer)
 	}
 
 	return r
