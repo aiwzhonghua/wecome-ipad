@@ -25,6 +25,9 @@ func Router() *gin.Engine {
 
 		//获取外部联系人
 		wecome.GET("/contact/sync/customer", contact.SyncCustomer)
+
+		//同步所有同事信息
+		wecome.GET("/contact/sync/colleague", contact.Colleague)
 	}
 
 	return r
