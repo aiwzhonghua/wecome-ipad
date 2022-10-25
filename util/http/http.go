@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-const BASE_URL = ""
+const BASE_URL = "http://47.122.9.145:8080"
 
 type MacApi struct {
 	BaseUrl       string
