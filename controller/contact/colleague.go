@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"net/url"
 	pkg_api "wecome-ipad/util/http"
 )
 
@@ -47,4 +48,32 @@ func Colleague(c *gin.Context) {
 	respColleague := &ColleagueGenerated{}
 	_ = json.Unmarshal([]byte(ret), respColleague)
 	c.JSON(http.StatusOK, respColleague)
+}
+
+type paramsUpdateColleague struct {
+	Id    string `json:"id"`
+	Alias string `json:"alias"`
+}
+
+type UpdateColleagueGenerated struct {
+	Code int `json:"code"`
+}
+
+//更新同事备注
+func UpdateColleague(c *gin.Context) {
+
+	var paramsUpdateColleague paramsUpdateColleague
+
+	if err := c.BindJSON(&paramsUpdateColleague); err != nil {
+		c.JSON(http.StatusOK, " 参数不正确")
+		return
+	}
+	alias := url.QueryEscape(paramsUpdateColleague.Alias)
+	apiHandler := pkg_api.MacApi{Authorization: c.GetHeader("Authorization")}
+	ret := apiHandler.PutJson("/contact/colleague/1688853281235321?alias="+alias, map[string]string{})
+
+	respUpdateColleague := &UpdateColleagueGenerated{}
+	_ = json.Unmarshal([]byte(ret), respUpdateColleague)
+	c.JSON(http.StatusOK, respUpdateColleague)
+
 }

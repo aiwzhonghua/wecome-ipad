@@ -87,3 +87,38 @@ func (m *MacApi) GetJson(requestPath string, headers map[string]string) string {
 
 	return respGetHtml
 }
+
+func (m *MacApi) PutJson(requestPath string, headers map[string]string) string {
+	clientGet := http.Client{}
+	requestUrl := BASE_URL + requestPath
+	if m.BaseUrl != "" {
+		requestUrl = m.BaseUrl + requestPath
+	}
+	fmt.Println(requestUrl)
+	req, err := http.NewRequest(http.MethodPut, requestUrl, nil)
+	if err != nil {
+		log.Fatal("http.NewRequest", err)
+	}
+	if m.Authorization != "" {
+		req.Header.Set("Authorization", m.Authorization)
+	}
+	req.Header.Set("Authorization", m.Authorization)
+	if headers != nil {
+		for key, val := range headers {
+			req.Header.Set(key, val)
+		}
+	}
+	resp, err := clientGet.Do(req)
+	if err != nil {
+		log.Fatal("clientGet.Do", err)
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatal("ioutil.ReadALL", err)
+	}
+
+	respGetHtml := string(body)
+
+	return respGetHtml
+}

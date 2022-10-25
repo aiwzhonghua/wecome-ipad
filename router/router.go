@@ -28,6 +28,9 @@ func Router() *gin.Engine {
 
 		//同步所有同事信息
 		wecome.GET("/contact/sync/colleague", contact.Colleague)
+
+		//更新同事备注
+		wecome.PUT("/contact/sync/colleague", contact.UpdateColleague)
 	}
 
 	return r
