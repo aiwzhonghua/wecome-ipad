@@ -12,5 +12,6 @@ ipad protocol, implementation
    <li>/v1/contact/sync/customer(获取外部联系人)</li>
    <li>/v1/contact/sync/colleague(同步所有同事信息)</li>
    <li>/v1/contact/colleague(更新同事备注)</li>
+   <li>/v1/contact/customer(更新外部联系人备注和电话)</li>
 
 </ul>
