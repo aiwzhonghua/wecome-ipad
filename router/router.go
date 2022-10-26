@@ -31,6 +31,9 @@ func Router() *gin.Engine {
 
 		//更新同事备注
 		wecome.PUT("/contact/sync/colleague", contact.UpdateColleague)
+
+		//更新外部联系人公司电话
+		wecome.PUT("//contact/customer", contact.UpdateColleagueCustomer)
 	}
 
 	return r

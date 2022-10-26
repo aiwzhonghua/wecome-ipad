@@ -70,10 +70,37 @@ func UpdateColleague(c *gin.Context) {
 	}
 	alias := url.QueryEscape(paramsUpdateColleague.Alias)
 	apiHandler := pkg_api.MacApi{Authorization: c.GetHeader("Authorization")}
-	ret := apiHandler.PutJson("/contact/colleague/1688853281235321?alias="+alias, map[string]string{})
+	ret := apiHandler.PutJson("/contact/colleague/"+paramsUpdateColleague.Id+"?alias="+alias, map[string]string{})
 
 	respUpdateColleague := &UpdateColleagueGenerated{}
 	_ = json.Unmarshal([]byte(ret), respUpdateColleague)
 	c.JSON(http.StatusOK, respUpdateColleague)
 
+}
+
+type paramsColleagueCustomer struct {
+	Id      string `json:"id" binding:"required"`
+	Alias   string `json:"alias"`
+	phone   string `json:"phone"`
+	company string `json:"company"`
+}
+
+//更新外部联系电话，名称
+func UpdateColleagueCustomer(c *gin.Context) {
+
+	var paramsColleagueCustomer paramsColleagueCustomer
+
+	if err := c.BindJSON(&paramsColleagueCustomer); err != nil {
+		c.JSON(http.StatusOK, "参数不正确")
+		return
+	}
+
+	alias := url.QueryEscape(paramsColleagueCustomer.Alias)
+	company := url.QueryEscape(paramsColleagueCustomer.company)
+	apiHandler := pkg_api.MacApi{Authorization: c.GetHeader("Authorization")}
+	ret := apiHandler.PutJson("/contact/customer/"+paramsColleagueCustomer.Id+"?alias="+alias+"&company="+company+"&phone="+paramsColleagueCustomer.phone, map[string]string{})
+
+	respUpdateColleague := &UpdateColleagueGenerated{}
+	_ = json.Unmarshal([]byte(ret), respUpdateColleague)
+	c.JSON(http.StatusOK, respUpdateColleague)
 }
