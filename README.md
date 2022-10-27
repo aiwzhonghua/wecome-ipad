@@ -15,4 +15,5 @@ ipad protocol, implementation
    <li>/v1/contact/customer(更新外部联系人备注和电话)</li>
    <h3>群聊相关</h3>
    <li>/v1/room/sessions(获取正在群聊的群，可能未保存到通讯录)</li>
+   <li>/v1/room(创建群组)</li>
 </ul>
