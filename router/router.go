@@ -13,7 +13,7 @@ func Router() *gin.Engine {
 
 	r := gin.New()
 
-	wecome := r.Group("/v1")
+	wecome := r.Group("")
 	{
 		//获取二维码
 		wecome.GET("/qrcode", qrcode.QrcodeController)
