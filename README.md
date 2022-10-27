@@ -13,5 +13,6 @@ ipad protocol, implementation
    <li>/v1/contact/sync/colleague(同步所有同事信息)</li>
    <li>/v1/contact/colleague(更新同事备注)</li>
    <li>/v1/contact/customer(更新外部联系人备注和电话)</li>
-
+   <h3>群聊相关</h3>
+   <li>/v1/room/sessions(获取正在群聊的群，可能未保存到通讯录)</li>
 </ul>
