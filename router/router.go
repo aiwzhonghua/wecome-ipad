@@ -6,6 +6,7 @@ import (
 	"wecome-ipad/controller/check"
 	"wecome-ipad/controller/contact"
 	"wecome-ipad/controller/qrcode"
+	"wecome-ipad/room"
 )
 
 func Router() *gin.Engine {
@@ -33,7 +34,11 @@ func Router() *gin.Engine {
 		wecome.PUT("/contact/sync/colleague", contact.UpdateColleague)
 
 		//更新外部联系人公司电话
-		wecome.PUT("//contact/customer", contact.UpdateColleagueCustomer)
+		wecome.PUT("/contact/customer", contact.UpdateColleagueCustomer)
+
+		//获取正在群聊的群，此群可能未保存到通讯录
+		wecome.GET("/room/sessions", room.Sessions)
+
 	}
 
 	return r
