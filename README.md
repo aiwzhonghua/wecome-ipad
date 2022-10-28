@@ -15,4 +15,4 @@ ipad protocol, implementation
    <li>/room(创建群组)</li>
 </ul>
 <h3>技术合作交流</h3>
-<img src="https://buckettest-file2.oss-cn-shanghai.aliyuncs.com/WX20221028-084639.png" width=100 height=100/>
+<img src="https://buckettest-file2.oss-cn-shanghai.aliyuncs.com/WX20221028-084639.png" width=150 height=150/>
