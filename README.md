@@ -1,8 +1,5 @@
 # wecome-ipad
 ipad protocol, implementation
-<h3>技术合作交流</h3>
-<h4>企鹅群：983262171</h4>
-
 <ul>更新API
    <h3>登陆相关</h3>
    <li>/qrcode(获取二维码)</li>
@@ -17,3 +14,5 @@ ipad protocol, implementation
    <li>/room/sessions(获取正在群聊的群，可能未保存到通讯录)</li>
    <li>/room(创建群组)</li>
 </ul>
+<h3>技术合作交流</h3>
+<img src="https://buckettest-file2.oss-cn-shanghai.aliyuncs.com/WX20221028-084639.png" width=100 height=100/>
